@@ -1,0 +1,29 @@
+
+// Default variable overrides
+$primary : #FDC000;
+$container-max-widths: (
+  sm: 540px,
+  md: 704px,
+  lg: 924px,
+  xl: 1140px,
+  xxl: 1364px
+);
+
+// Required
+@import "../../node_modules/bootstrap/scss/functions";
+// Required
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+// $theme-colors: (
+//   "primary":    orange, // 변수가 아니라 그냥 색상으로 넣어줄 때는 import보다 위에 있어도됨.
+//   "secondary":  orange,
+//   "success":    orange,
+//   "info":       $info,
+//   "warning":    $warning,
+//   "danger":     $danger,
+//   "light":      $light,
+//   "dark":       $dark
+// ) !default;
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
