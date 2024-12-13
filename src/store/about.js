@@ -1,5 +1,5 @@
 export default{
-  namespace : true,
+  namespaced : true,
   state: () => ({
     name: 'YOUNG',
     email : 'dudwn0621@naver.com',

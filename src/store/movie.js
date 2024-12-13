@@ -2,6 +2,7 @@ import axios from 'axios'
 import _uniqBy from 'lodash/uniqBy'
 
 const _defaultMessage = 'Search for the movie title!'
+const {OMDB_API_KEY} = process.env
 
 export default {
   // module!
@@ -37,6 +38,7 @@ export default {
   // 비동기
   // commit 말고 또 dispatch가 있음.
   actions: {
+    // 키워드에 해당하는 모든 영화들을 검색하는 메소드
     async searchMovies({state, commit},payload){
       if(state.loading) return // 계속 로딩화면이 뜨는 과부하 상황 방지. 한번 로딩화면 뜨고나면 밑에는 실행안됨.
 
@@ -90,6 +92,7 @@ export default {
         })
       }
     },
+    // ID로 영화 한개만 검색
     async searchMovieWithId({state, commit},payload){
       if(state.loading) return
 
@@ -115,12 +118,16 @@ export default {
         })
       }
     }
+    // sampleAction(context, payload){
+    //   // context는 해당 스토어 내에 있는 값들 가져오기
+    //   // payload는 외부에서 받아오는 값들
+    //   const {state, getters, commit, dispatch} = context
+    // }
   }
 }
 
 function _fetchMovie(payload){
   const {title, type, year, page, id}= payload
-  const OMDB_API_KEY = '7035c60c'
   const url = id ? `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&i=${id}`
   :`https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${title}&type=${type}&y=${year}&page=${page}`
   //const url = `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}`
